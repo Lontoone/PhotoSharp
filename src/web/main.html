@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="/eel.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dropDown.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+
+    <script>
+        /*
+        $(document).ready(function () {
+            $('.ui.dropdown').dropdown();
+        });*/
+
+    </script>
+</head>
+
+<body>
+
+    <!--Header-->
+    <div class="header_root">
+
+        <!-- drop down menu -->
+        <div class="header_btn_group">
+            <button class="mini ui compact labeled icon black button dropbtn"><i class="white file icon"></i>
+                <span class="white"> 檔案</span></button>
+            <div class="dropdown_menu">
+                <div>
+                    <button class="ddm__item">New</button>
+                    <input class="ddm__item" type="file" id="img" name="img" style="display: none;" accept="image/*">
+                    <button class="ddm__item"><label for="img">開啟圖片</label></button>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button class="mini ui compact labeled icon black button"><i class="white undo icon"></i> <span
+                    class="white" onclick=BackToPreviouse()> 上一步</span></button>
+            <button class="mini ui compact labeled icon black button"><i class="white play icon"></i> <span
+                    class="white" onclick=BackToNext()> 下一步</span></button>
+        </div>
+    </div>
+
+    <!--側邊 操作 nav-->
+    <div class="sideNav_root">
+        <!-- Resize操作 -->
+        <div class="white ui horizontal divider">調整</div>
+        <!--Reszie-->
+        <div class="opt_btns_container">
+            <div class="opt_bar">Resize</div>
+            <div class="opt_btns close">
+                <!-- 選擇演算法 -->
+                <div class="opt_btn_groups">
+                    <label for="resize_select">內插法</label>
+                    <select class="black" id="resize_select" name="resize_select">
+                        <option value="linear" class="black">雙線性</option>
+                        <option value="nearst" class="black">最近鄰</option>
+                        <option value="cubic" class="black">雙立方</option>
+                    </select>
+                </div>
+                <!-- 倍率 -->
+                <div class="opt_btn_groups">
+                    <span>倍率
+                        <span id="resize_ratio_text">5</span>
+                    </span>
+                    <input type="range" min="0.1" max="10" step="0.1" value="1" class="slider" id="resize_ratio"
+                        oninput={updateSliderText(resize_ratio_text,resize_ratio)}>
+                </div>
+
+                <button class="opt_apply_btn" onclick="Resize()">套用</button>
+            </div>
+        </div>
+
+        <!--直方圖-->
+        <div class="opt_btns_container">
+            <div class="opt_bar" onclick="HistGraph()">直方圖</div>
+            <div class="opt_btns close">
+
+                <canvas id="histogram" width="400" height="250"></canvas>
+
+                <button class="opt_apply_btn" onclick="EqualizeHist()">等化</button>
+            </div>
+        </div>
+
+        <!-- 顏色改變 -->
+        <div class="opt_btns_container">
+            <div class="opt_bar">顏色調整</div>
+
+            <div class="opt_btns close">
+                <div class="opt_btn_container">
+                    <button class="opt_btn" onclick="Gray()">灰階</button>
+                    <button class="opt_btn" onclick="PencilStyle()">HSL</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ************** 濾鏡操作 ****************-->
+        <div class="white ui horizontal divider">濾鏡</div>
+        <!--高斯模糊-->
+        <div class="opt_btns_container">
+            <div class="opt_bar">高斯模糊</div>
+            <div class="opt_btns close">
+                <div class="opt_btn_groups">
+                    <span>k size
+                        <span id="gs_k_size_text">5</span>
+                    </span>
+                    <input type="range" min="1" max="20" value="5" class="slider" id="gs_k_size"
+                        oninput={updateSliderText(gs_k_size_text,gs_k_size)}>
+                </div>
+
+                <div class="opt_btn_groups">
+                    <span>sigma
+                        <span id="gs_sigma_size_text">5</span>
+                    </span>
+                    <input type="range" min="1" max="100" value="5" class="slider" id="gs_sigma_size"
+                        oninput={updateSliderText(gs_sigma_size_text,gs_sigma_size)}>
+                </div>
+
+                <button class="opt_apply_btn" onclick="GaussianBlur()">套用</button>
+            </div>
+        </div>
+        <!-- 中值濾波 -->
+        <div class="opt_btns_container">
+            <div class="opt_bar">去雜訊</div>
+            <div class="opt_btns close">
+                <div class="opt_btn_groups">
+                    <span>強度
+                        <span id="mf_k_size_text">5</span>
+                    </span>
+                    <input type="range" min="1" max="20" value="5" class="slider" id="mf_k_size"
+                        oninput={updateSliderText(mf_k_size_text,mf_k_size)}>
+                </div>
+                <button class="opt_apply_btn" onclick="MedianFilter()">套用</button>
+            </div>
+        </div>
+
+        <!-- 雙邊濾波 -->
+        <div class="opt_btns_container">
+            <div class="opt_bar">美肌</div>
+            <div class="opt_btns close">
+
+                <div class="opt_btn_groups">
+                    <span>直徑<span id="bf_d_size_text">5</span></span>
+                    <input type="range" min="1" max="20" value="5" class="slider" id="bf_d_size"
+                        oninput={updateSliderText(bf_d_size_text,bf_d_size)}>
+                </div>
+                <div class="opt_btn_groups">
+                    <span>色彩範圍<span id="bf_cs_size_text">5</span></span>
+                    <input type="range" min="1" max="500" value="5" class="slider" id="bf_cs_size"
+                        oninput={updateSliderText(bf_cs_size_text,bf_cs_size)}>
+                </div>
+                <div class="opt_btn_groups">
+                    <span>空間範圍 <span id="bf_ss_size_text">5</span></span>
+                    <input type="range" min="1" max="500" value="5" class="slider" id="bf_ss_size"
+                        oninput={updateSliderText(bf_ss_size_text,bf_ss_size)}>
+                </div>
+                <button class="opt_apply_btn" onclick="BilateralFilter()">套用</button>
+            </div>
+        </div>
+
+        <!-- 銳化 -->
+        <div class="opt_btns_container">
+            <div class="opt_bar">銳化</div>
+            <div class="opt_btns close">
+                <div class="opt_btn_groups">
+                    <span>k size <span id="usm_k_size_text">1</span> </span>
+                    <input type="range" step="0.1" min="0.1" max="10" value="1" class="slider" id="usm_k_size"
+                        oninput={updateSliderText(usm_k_size_text,usm_k_size)}>
+                </div>
+                <button class="opt_apply_btn" onclick="USmasking()">套用</button>
+            </div>
+        </div>
+
+
+
+
+        <!-- ********************* 效果操作 *****************************-->
+        <div class="white ui horizontal divider">效果</div>
+        <!--邊緣提取-->
+        <div class="opt_btns_container">
+            <div class="opt_bar">邊緣提取</div>
+            <div class="opt_btns close">
+                <div class="opt_btn_groups">
+                    <label for="grad_select">演算法</label>
+                    <select class="black" id="grad_select" name="grad_select">
+                        <option value="robers" class="black">robers</option>
+                        <option value="prewitt" class="black">prewitt</option>
+                        <option value="sobel" class="black">sobel</option>
+                        <option value="robinson" class="black">robinson</option>
+                        <option value="kirsh" class="black">kirsh</option>
+                    </select>
+                </div>
+                <button class="opt_apply_btn" onclick="Grad()">套用</button>
+            </div>
+        </div>
+
+        <!-- 非真實感 -->
+        <div class="opt_btns_container">
+            <div class="opt_bar">非真實感濾鏡</div>
+
+            <div class="opt_btns close">
+                <div class="opt_btn_container">
+                    <button class="opt_btn" onclick="EdgePreserve()">邊緣保留</button>
+                    <button class="opt_btn" onclick="PencilStyle()">鉛筆風</button>
+                    <button class="opt_btn" onclick="Stylization()">特色</button>
+                    <button class="opt_btn" onclick="Fuzzy()">毛邊模糊</button>
+                </div>
+            </div>
+        </div>
+        <!-- 波紋模糊 -->
+        <div class="opt_btns_container">
+            <div class="opt_bar">波紋模糊</div>
+            <div class="opt_btns close">
+                <div class="opt_btn_groups">
+                    <span>強度
+                        <span id="ripple_amp_text">15</span>
+                    </span>
+                    <input type="range" step="0.1" min="1" max="100" value="15" class="slider" id="ripple_amp"
+                        oninput={updateSliderText(ripple_amp_text,ripple_amp)}>
+                </div>
+                <div class="opt_btn_groups">
+                    <span>週期
+                        <span id="ripple_pid_text">5</span>
+                    </span>
+                    <input type="range" min="1" max="50" value="5" class="slider" id="ripple_pid"
+                        oninput={updateSliderText(ripple_pid_text,ripple_pid)}>
+                </div>
+
+                <button class="opt_apply_btn" onclick="Ripple()">套用</button>
+            </div>
+        </div>
+
+        <!-- 放射像素風格 -->
+        <div class="opt_btns_container">
+            <div class="opt_bar">放射像素風格</div>
+            <div class="opt_btns close">
+                <div class="opt_btn_groups">
+                    <span>半徑
+                        <span id="rp_r_text">15</span>
+                    </span>
+                    <input type="range" min="1" max="100" value="15" class="slider" id="rp_r"
+                        oninput={updateSliderText(rp_r_text,rp_r)}>
+                </div>
+                <div class="opt_btn_groups">
+                    <span>角度
+                        <span id="rp_theta_text">5</span>
+                    </span>
+                    <input type="range" step="0.1" min="0.1" max="360" value="5" class="slider" id="rp_theta"
+                        oninput={updateSliderText(rp_theta_text,rp_theta)}>
+                </div>
+                <button class="opt_apply_btn" onclick="RadialPixelation()">套用</button>
+            </div>
+        </div>
+
+        <!-- 漣漪模糊 -->
+        <div class="opt_btns_container">
+            <div class="opt_bar">漣漪模糊</div>
+            <div class="opt_btns close">
+                <div class="opt_btn_groups">
+                    <span>強度
+                        <span id="radical_ripple_amp_text">15</span>
+                    </span>
+                    <input type="range" step="0.1" min="1" max="100" value="15" class="slider" id="radical_ripple_amp"
+                        oninput={updateSliderText(radical_ripple_amp_text,radical_ripple_amp)}>
+                </div>
+                <div class="opt_btn_groups">
+                    <span>週期
+                        <span id="radical_ripple_pid_text">5</span>
+                    </span>
+                    <input type="range" min="1" max="50" value="5" class="slider" id="radical_ripple_pid"
+                        oninput={updateSliderText(radical_ripple_pid_text,radical_ripple_pid)}>
+                </div>
+                <button class="opt_apply_btn" onclick="RadialRipple()">套用</button>
+            </div>
+        </div>
+
+        <!-- 魚眼特效 -->
+        <div class="opt_btns_container">
+            <div class="opt_bar">魚眼特效</div>
+            <div class="opt_btns close">
+
+                <!--TODO-->
+
+                <button class="opt_apply_btn" onclick="USmasking()">套用</button>
+            </div>
+        </div>
+        <!-- 扭轉特效 -->
+        <div class="opt_btns_container">
+            <div class="opt_bar">扭轉特效</div>
+            <div class="opt_btns close">
+
+                <!--TODO-->
+
+                <button class="opt_apply_btn" onclick="USmasking()">套用</button>
+            </div>
+        </div>
+        <!-- 運動模糊 -->
+        <div class="opt_btns_container">
+            <div class="opt_bar">運動模糊</div>
+            <div class="opt_btns close">
+
+                <!--TODO-->
+
+                <button class="opt_apply_btn" onclick="USmasking()">套用</button>
+            </div>
+        </div>
+        <!-- 放射模糊 -->
+        <div class="opt_btns_container">
+            <div class="opt_bar">放射模糊</div>
+            <div class="opt_btns close">
+
+                <!--TODO-->
+
+                <button class="opt_apply_btn" onclick="USmasking()">套用</button>
+            </div>
+        </div>
+
+        <!--TODO-->
+
+    </div>
+
+    <!--Middle-->
+    <div class="middle_root">
+        <!--圖片預覽-->
+        <div class="img_container">
+            <img id="preview" src="https://react.semantic-ui.com/images/wireframe/image.png" />
+        </div>
+
+    </div>
+
+
+    <!--Footer-->
+    <div class="footer_root">
+        <!--解析度-->
+        <div class="footer_infoGroup">
+            <p>大小:</p>
+            <p id="resolution_text">0*0</p>
+        </div>
+
+        <!--檔案大小-->
+        <div class="footer_infoGroup">
+            <p>檔案:</p>
+            <p id="fileSize_text">-KB</p>
+        </div>
+
+        <!-- 縮放 slider-->
+        <div class="footer_infoGroup">
+            <p id="preview_slider_text">100%</p>
+            <input type="range" step="0.1" min="0.1" max="200" value="100" class="slider" id="preview_slider">
+        </div>
+
+    </div>
+
+    <!--
+    <form id="imgFrom">
+        <label for="img">Select image:</label>
+        <input type="file" id="img" name="img" accept="image/*">
+    </form>
+
+    <button class="ui button" onclick="Gray()">灰階</button>
+    <img id="preview" src="#" />
+-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <script src="func.js"></script>
+    <script src="labelControl.js"></script>
+</body>
+
+
+
+
+
+
+</html>
