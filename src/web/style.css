@@ -9,7 +9,15 @@ body {
   background-color: rgb(117, 117, 117);
   overflow: hidden;
 }
-
+.photoSharp-logo{
+  display: flex;
+  color: #eee;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 5px ;
+  font-size: 20pt;
+  
+}
 .header_root {
   width: 100vw;
   height: 40px;
@@ -129,7 +137,7 @@ body {
   align-items: center;
 }
 .opt_btn_groups * {
-  margin: 2px 5px;
+  margin: 2px 2px;
   color: aliceblue;
 }
 /* 選項只有按鈕時 */
@@ -175,6 +183,38 @@ body {
 .opt_apply_btn:hover {
   background-color: rgb(181, 187, 192);
 }
+
+/****************  顏色通道UI ********************/
+.side_small_preview_container{
+  background-color: #333;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: aliceblue;
+}
+.side_small_preview_container .channel_preview_img{
+  width: 50px;  
+  height: 50px;
+  object-fit: contain;
+}
+
+.side_small_preview_container .toggleImg{
+  height: 20px;
+  cursor: pointer;
+}
+
+/****************  顏色通道UI ********************/
+
+/******************* HUE BAR **********************/
+.opt_slider_hsv_hubar{
+  padding-left: 100px;
+  width: 100%;
+  height: 5px;
+  margin: 2px 5px;
+}
+/******************* HUE BAR **********************/
 
 /* 其他 */
 .white {
