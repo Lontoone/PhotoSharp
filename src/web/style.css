@@ -9,14 +9,22 @@ body {
   background-color: rgb(117, 117, 117);
   overflow: hidden;
 }
-.photoSharp-logo{
+.photoSharp-logo {
   display: flex;
   color: #eee;
   justify-content: center;
   align-items: center;
-  margin: 5px 5px ;
+  margin: 5px 5px;
   font-size: 20pt;
-  
+}
+#author-box {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 10pt;
+  color: #eee;
 }
 .header_root {
   width: 100vw;
@@ -147,7 +155,7 @@ body {
   margin: 10px;
 }
 
-.opt_btn{
+.opt_btn {
   min-height: 25px;
   margin: 5px;
   border: none;
@@ -160,7 +168,7 @@ body {
   background-color: #555;
   box-shadow: 0px 0px 2px rgb(0, 0, 0);
 }
-.opt_btn:hover{
+.opt_btn:hover {
   background-color: rgb(118, 118, 118);
 }
 
@@ -185,7 +193,7 @@ body {
 }
 
 /****************  顏色通道UI ********************/
-.side_small_preview_container{
+.side_small_preview_container {
   background-color: #333;
   height: 50px;
   display: flex;
@@ -194,13 +202,13 @@ body {
   align-items: center;
   color: aliceblue;
 }
-.side_small_preview_container .channel_preview_img{
-  width: 50px;  
+.side_small_preview_container .channel_preview_img {
+  width: 50px;
   height: 50px;
   object-fit: contain;
 }
 
-.side_small_preview_container .toggleImg{
+.side_small_preview_container .toggleImg {
   height: 20px;
   cursor: pointer;
 }
@@ -208,7 +216,7 @@ body {
 /****************  顏色通道UI ********************/
 
 /******************* HUE BAR **********************/
-.opt_slider_hsv_hubar{
+.opt_slider_hsv_hubar {
   padding-left: 100px;
   width: 100%;
   height: 5px;

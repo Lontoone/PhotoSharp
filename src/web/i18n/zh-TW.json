@@ -45,7 +45,7 @@
 	"effect":"效果",
 	"edge-extraction":"邊緣抽取",
 	"algorithm":"演算法",
-	"unrealistic":"非真實感濾鏡",
+	"unrealistic":"其他濾鏡",
 	"edge-preserve":"邊緣保留",
 	"pencil-style":"鉛筆風",
 	"stylization":"特色",
@@ -72,6 +72,7 @@
 	"overlay":"覆蓋",
 	"overlay-image":"加入圖片",
 	"blend-mode":"混合模式",
+	"negative-film":"負片",
 
 	"size":"大小",
 	"file-size":"檔案",
@@ -82,6 +83,7 @@
 	"hsv-max-v":"最小亮度",
 	"hsv-min-h":"最小色相",
 	"hsv-max-h":"最大色相",
-	"color-seg":"色彩分割"
+	"color-seg":"色彩分割",
+	"author":"作者"
 	 
 }

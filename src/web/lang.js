@@ -12,7 +12,6 @@ $.i18n()
     $('body').i18n();
   });
 
-$("title").i18n("appname-title");
 
 function SetLanguage(lang){
   console.log("switch lange "+lang)

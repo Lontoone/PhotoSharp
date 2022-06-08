@@ -1,10 +1,8 @@
 import base64
-from distutils.log import debug
 import eel
 import os
 import cv2
 import numpy as np
-from sqlalchemy import false
 import time
 
 current_file_extension = ".png"
@@ -619,6 +617,7 @@ def radicalBlur(url, k):
 def faceDetection(url, scale, minNei, method):
     scale = float(scale)
     minNei = int(minNei)
+    print(scale,minNei)
 
     img = data_uri_to_cv2_img(url)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -649,7 +648,7 @@ def useChannel(url, isR, isG, isB):
     g = np.zeros(img.shape)
 
     if(isR and isG and isB):
-        eel.SetImg(url, false, false)()
+        eel.SetImg(url, False, False)()
         return
 
     if isR:
@@ -660,7 +659,7 @@ def useChannel(url, isR, isG, isB):
         g[:, :, 1] = img[:, :, 1]
 
     blob = img_to_base64(g)
-    eel.SetImg(blob, false, false)()
+    eel.SetImg(blob, False, False)()
 
 @eel.expose
 def overlayImage(url,layerUrl,opt):
@@ -710,4 +709,5 @@ def overlayImage(url,layerUrl,opt):
     
 # 開啟網頁
 eel.init(f'{os.path.dirname(os.path.realpath(__file__))}/web')
-eel.start('main.html', mode='chrome-app')  # 網頁 (app模式)
+#eel.start('main.html', mode='chrome-app',port=8000,cmdline_args=['--start-fullscreen', '--browser-startup-dialog'])  # 網頁 (app模式)
+eel.start('main.html', mode='edge',port=8000,cmdline_args=['--start-fullscreen'])  # 網頁 (app模式)

@@ -46,7 +46,7 @@
 	"effect":"Effect",
 	"edge-extraction":"Edge Extraction",
 	"algorithm":"Algorithm",
-	"unrealistic":"Unrealistic",
+	"unrealistic":"Other Filter",
 	"edge-preserve":"Edge Preserve",
 	"pencil-style":"Pencil Style",
 	"stylization":"Stylization",
@@ -85,6 +85,7 @@
 	"hsv-max-v":"Min Value",
 	"hsv-min-h":"Min Hue",
 	"hsv-max-h":"Max Hue",
-	"color-seg":"Color Segementation"
+	"color-seg":"Color Segementation",
 	 
+	"author":"Author"
 }

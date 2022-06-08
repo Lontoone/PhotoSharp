@@ -146,21 +146,20 @@ const previousSaves = [];
 const nextSaves = [];
 //上一步
 function BackToPreviouse() {
-  console.log(previousSaves.length);
-  console.log(nextSaves.length);
   if (previousSaves.length > 0) {
     base_str = previousSaves.pop();
     //preview.src = base_str;
     SetImg(base_str);
     SaveNextStep(base_str);
-  }
+  }  
+  console.log(previousSaves.length);
+  console.log(nextSaves.length);
 }
 //下一步
 function BackToNext() {
   if (nextSaves.length > 0) {
     base_str = nextSaves.pop();
     SaveStep(base_str);
-    //preview.src = base_str;
     SetImg(base_str);
   }
 }
@@ -173,6 +172,8 @@ function SaveStep(bs64) {
     previousSaves.shift();
     previousSaves.push(bs64);
   }
+  console.log(previousSaves.length);
+  console.log(nextSaves.length);
 }
 //紀錄返回上一步步驟
 function SaveNextStep(bs64) {
@@ -188,7 +189,8 @@ function SaveNextStep(bs64) {
 // ***************** 註冊 hot key *********************
 
 function RegiseterHotKey(e) {
-  console.log(e);
+  //console.log(e);
+  e.preventDefault();
   //上一步
   if (e.ctrlKey && e.key === "z") {
     BackToPreviouse();
@@ -201,8 +203,9 @@ function RegiseterHotKey(e) {
   if (e.ctrlKey && e.key === "s") {
     SaveAs()
   }
+  
 }
-document.addEventListener("keyup", RegiseterHotKey, false);
+document.addEventListener("keydown", RegiseterHotKey, false);
 
 // ***************** --- *********************
 

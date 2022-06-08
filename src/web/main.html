@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html >
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <title data-i18n="appname-title"></title>
+    <title>PhotoSharp</title>
+    <link rel="icon" href="img/icon.jpg">
     <!---->
     <script src="/eel.js"></script>
 
@@ -20,13 +21,25 @@
 
     <script src="templateControl.js"></script>
     <!-- 在地化 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.min.js" integrity="sha512-a0tGMh5o0nCoRDiMVaSmiWgB9s/JqfC+PQZHWANTzIhasvm5eH9NkWTmJ4WloaQWLT8fEzRBjvADgFNDf0WusQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.messagestore.min.js" integrity="sha512-/hv/2tE0W63ywFkKYwtnbYdBwlS+tjEw/TWvGD31awT1bbEliLB0G0akHicAUJVLPSCE6LVEnfdJy0lPkrauvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.emitter.min.js" integrity="sha512-Yw0lHnAEswccgVMDJm0wNcn6VoLj6g/xAerqevklCx+D1eBBJZDvs6N7vzmlgmpT9SrZ/QsWDjWVOV8d5InotA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.fallbacks.min.js" integrity="sha512-pN1NvaFGaA7yZtCG3scw7V3/coyQ5yoPree1XjRU3AH4U09l7yv/UCwz2xenxTJR4CI4vm+VD4d1vE1qpEgntg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.language.min.js" integrity="sha512-J96wSOfD3IQIzCnzDFXdXJViIbu6FROoFIn92ai/gGjSBAKDCa6zhfN0XZBY/yeybt2OntBm44hIAR78x9HBBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.parser.min.js" integrity="sha512-7SqTAqYSZQLut/vsxY2AFpb+kHhx97D6aBE/mxasqUzdoFqdBunJexJX+I51Uj1j2o9yD9JtNyMZ1PXDMnJMoQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.min.js"
+        integrity="sha512-a0tGMh5o0nCoRDiMVaSmiWgB9s/JqfC+PQZHWANTzIhasvm5eH9NkWTmJ4WloaQWLT8fEzRBjvADgFNDf0WusQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.messagestore.min.js"
+        integrity="sha512-/hv/2tE0W63ywFkKYwtnbYdBwlS+tjEw/TWvGD31awT1bbEliLB0G0akHicAUJVLPSCE6LVEnfdJy0lPkrauvg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.emitter.min.js"
+        integrity="sha512-Yw0lHnAEswccgVMDJm0wNcn6VoLj6g/xAerqevklCx+D1eBBJZDvs6N7vzmlgmpT9SrZ/QsWDjWVOV8d5InotA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.fallbacks.min.js"
+        integrity="sha512-pN1NvaFGaA7yZtCG3scw7V3/coyQ5yoPree1XjRU3AH4U09l7yv/UCwz2xenxTJR4CI4vm+VD4d1vE1qpEgntg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.language.min.js"
+        integrity="sha512-J96wSOfD3IQIzCnzDFXdXJViIbu6FROoFIn92ai/gGjSBAKDCa6zhfN0XZBY/yeybt2OntBm44hIAR78x9HBBQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.parser.min.js"
+        integrity="sha512-7SqTAqYSZQLut/vsxY2AFpb+kHhx97D6aBE/mxasqUzdoFqdBunJexJX+I51Uj1j2o9yD9JtNyMZ1PXDMnJMoQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="lang.js"></script>
 </head>
 <!-- *********************** 模板 ***************************** -->
@@ -70,8 +83,8 @@
                 <span class="white" data-i18n="file-button"> 檔案</span></button>
             <div class="dropdown_menu">
                 <div>
-                    <input  class="ddm__item" type="file" id="img" name="img" style="display: none;" accept="image/*">
-                    <button class="ddm__item"><label for="img" data-i18n="open-file" >開啟圖片</label></button>
+                    <input class="ddm__item" type="file" id="img" name="img" style="display: none;" accept="image/*">
+                    <button class="ddm__item"><label for="img" data-i18n="open-file">開啟圖片</label></button>
                     <button data-i18n="save-as" class="ddm__item" onclick=SaveAs()>另存新檔...</button>
                 </div>
             </div>
@@ -89,7 +102,7 @@
             <button class="mini ui compact labeled icon black button dropbtn"><i class="white globe icon"></i>
                 <span class="white" data-i18n="language"> Language</span></button>
             <div class="dropdown_menu">
-                <div>                    
+                <div>
                     <button class="ddm__item" onclick="SetLanguage('en')">English</button>
                     <button class="ddm__item" onclick="SetLanguage('zh-TW')">中文</button>
                 </div>
@@ -109,21 +122,15 @@
                 <!-- 選擇演算法 -->
                 <script>
                     createSelect("resize", "resize_select", "interpolation", [
-                        { val: "linear", text: "雙線性",i18:"linear" },
-                        { val: "nearst", text: "最近鄰",i18:"inter-nearest" },
-                        { val: "cubic", text: "雙立方",i18:"inter-cubic" },
+                        { val: "linear", text: "雙線性", i18: "linear" },
+                        { val: "nearst", text: "最近鄰", i18: "inter-nearest" },
+                        { val: "cubic", text: "雙立方", i18: "inter-cubic" },
                     ]) 
                 </script>
 
                 <!-- 倍率 -->
-                <div class="opt_btn_groups">
-                    <span data-i18n="ratio">倍率
-                        <span id="resize_ratio_text">5</span>
-                    </span>
-                    <input type="range" min="0.1" max="10" step="0.1" value="1" class="slider" id="resize_ratio"
-                        oninput={updateSliderText(resize_ratio_text,resize_ratio)}>
-                </div>
-
+                <script>createSlider("resize", "resize_ratio", "倍率", min = 0.1, max = 5, 1, 0.1, "", "", "ratio")</script>
+                
                 <button class="opt_apply_btn" onclick="Resize()" data-i18n="apply">套用</button>
             </div>
         </div>
@@ -132,13 +139,13 @@
             <div class="opt_bar" data-i18n="rotation">旋轉</div>
             <div class="opt_btns close" id="rotate">
                 <div class="opt_btn_container" id="rotate_btns"></div>
-                <script>createButton("rotate_btns", "HorizontalFlip()", "水平翻轉","horizontal-flip")</script>
-                <script>createButton("rotate_btns", "VerticalFlip()", "垂直翻轉","vertical-flip")</script>
+                <script>createButton("rotate_btns", "HorizontalFlip()", "水平翻轉", "horizontal-flip")</script>
+                <script>createButton("rotate_btns", "VerticalFlip()", "垂直翻轉", "vertical-flip")</script>
                 <script>
-                    createSlider("rotate", "rotateAngle", "旋轉", -359, 359, 0, 1, "Rotate()","","rotation")
+                    createSlider("rotate", "rotateAngle", "旋轉", -359, 359, 0, 1, "Rotate()", "", "rotation")
                 </script>
 
-                <script>createButton("rotate", "ConfirmRotation()", "確認旋轉","apply")</script>
+                <script>createButton("rotate", "ConfirmRotation()", "確認旋轉", "apply")</script>
             </div>
         </div>
         <!--直方圖-->
@@ -159,15 +166,17 @@
             <div data-i18n="color-adjust" class="opt_bar">顏色調整</div>
             <div class="opt_btns close" id="colorAdjust">
                 <!--調整亮度-->
-                <script>createSlider("colorAdjust", "hsv_v", "亮度", 1, 100, 30, 1, "", "SetHSV_V()","color-v")</script>
-                <script>createSlider("colorAdjust", "hsv_s", "飽和度", 1, 100, 30, 1, "", "SetHSV_S()","color-s")</script>
+                <img class="opt_slider_hsv_hubar" src="https://www.artwork.com/gdsii/pixelmap/greybar.gif">
+                <script>createSlider("colorAdjust", "hsv_v", "亮度", 1, 100, 30, 1, "", "SetHSV_V()", "color-v")</script>
+                <img class="opt_slider_hsv_hubar"src="https://photographyinplainenglish.com/wp-content/uploads/2019/10/SaturationBar-1024x131.jpg">
+                <script>createSlider("colorAdjust", "hsv_s", "飽和度", 1, 100, 30, 1, "", "SetHSV_S()", "color-s")</script>
                 <img class="opt_slider_hsv_hubar" src="https://blog.joeardent.net/images/2015/12/hue-small.png">
-                <script>createSlider("colorAdjust", "hsv_h", "色彩", 0, 360, 30, 1, "", "SetHSV_H()","color-h")</script>
+                <script>createSlider("colorAdjust", "hsv_h", "色彩", 0, 360, 30, 1, "", "SetHSV_H()", "color-h")</script>
 
                 <div class="opt_btn_container" id="colorAdjust_btngroups">
-                    <script>createButton("colorAdjust_btngroups", "Gray()", "套用","gray-scale")</script>
-                    <script>createButton("colorAdjust_btngroups", "NegativeFlim()", "套用","negative-film")</script>
-                    
+                    <script>createButton("colorAdjust_btngroups", "Gray()", "套用", "gray-scale")</script>
+                    <script>createButton("colorAdjust_btngroups", "NegativeFlim()", "套用", "negative-film")</script>
+
                 </div>
             </div>
         </div>
@@ -177,19 +186,19 @@
             <div data-i18n="color-seg" class="opt_bar">顏色調整</div>
             <div class="opt_btns close" id="hsv_seg">
                 <!--調整亮度-->
-                <img class="opt_slider_hsv_hubar" src="https://photographyinplainenglish.com/wp-content/uploads/2019/10/SaturationBar-1024x131.jpg">
-                <script>createSlider("hsv_seg", "hsv_seg_mins", "亮度", 1, 100, 30, 1, "", "","hsv-min-s")</script>
-                <script>createSlider("hsv_seg", "hsv_seg_maxs", "亮度", 1, 100, 50, 1, "", "","hsv-max-s")</script>
-                
-                <img class="opt_slider_hsv_hubar" src="https://www.artwork.com/gdsii/pixelmap/greybar.gif">
-                <script>createSlider("hsv_seg", "hsv_seg_minv", "亮度", 1, 100, 30, 1, "", "","hsv-min-v")</script>
-                <script>createSlider("hsv_seg", "hsv_seg_maxv", "亮度", 1, 100, 50, 1, "", "","hsv-min-v")</script>
-                
-                <img class="opt_slider_hsv_hubar" src="https://blog.joeardent.net/images/2015/12/hue-small.png">
-                <script>createSlider("hsv_seg", "hsv_seg_minh", "最小色相", 0, 360, 30, 1, "", "","hsv-min-h")</script>
-                <script>createSlider("hsv_seg", "hsv_seg_maxh", "最大色相", 0, 360, 50, 1, "", "","hsv-max-h")</script>
+                <img class="opt_slider_hsv_hubar"src="https://photographyinplainenglish.com/wp-content/uploads/2019/10/SaturationBar-1024x131.jpg">
+                <script>createSlider("hsv_seg", "hsv_seg_mins", "亮度", 1, 100, 30, 1, "", "", "hsv-min-s")</script>
+                <script>createSlider("hsv_seg", "hsv_seg_maxs", "亮度", 1, 100, 50, 1, "", "", "hsv-max-s")</script>
 
-                <script>createButton("hsv_seg", "ColorSegement()", "套用","apply")</script>
+                <img class="opt_slider_hsv_hubar" src="https://www.artwork.com/gdsii/pixelmap/greybar.gif">
+                <script>createSlider("hsv_seg", "hsv_seg_minv", "亮度", 1, 100, 30, 1, "", "", "hsv-min-v")</script>
+                <script>createSlider("hsv_seg", "hsv_seg_maxv", "亮度", 1, 100, 50, 1, "", "", "hsv-min-v")</script>
+
+                <img class="opt_slider_hsv_hubar" src="https://blog.joeardent.net/images/2015/12/hue-small.png">
+                <script>createSlider("hsv_seg", "hsv_seg_minh", "最小色相", 0, 360, 30, 1, "", "", "hsv-min-h")</script>
+                <script>createSlider("hsv_seg", "hsv_seg_maxh", "最大色相", 0, 360, 50, 1, "", "", "hsv-max-h")</script>
+
+                <script>createButton("hsv_seg", "ColorSegement()", "套用", "apply")</script>
             </div>
         </div>
 
@@ -199,8 +208,8 @@
             <div data-i18n="exposure-calibration" class="opt_bar">曝光校正</div>
             <div class="opt_btns close" id="colorCorrect">
                 <!--調整亮度-->
-                <script>createSlider("colorCorrect", "gammaCorrection", "曝光", 0, 3, 1, 0.1,"","","strength")</script>
-                <script>createButton("colorCorrect", "Gamma()", "套用","apply")</script>
+                <script>createSlider("colorCorrect", "gammaCorrection", "曝光", 0, 3, 1, 0.1, "", "", "strength")</script>
+                <script>createButton("colorCorrect", "Gamma()", "套用", "apply")</script>
             </div>
         </div>
         <!-- 對比校正 -->
@@ -210,7 +219,7 @@
                 <!--調整亮度-->
                 <script>createSlider("colorBetaCorrect", "betaCorrection_a", "α", 0, 3, 1, 0.1)</script>
                 <script>createSlider("colorBetaCorrect", "betaCorrection_b", "β", 0, 3, 1, 0.1)</script>
-                <script>createButton("colorBetaCorrect", "Beta()", "套用","apply")</script>
+                <script>createButton("colorBetaCorrect", "Beta()", "套用", "apply")</script>
             </div>
         </div>
 
@@ -233,7 +242,7 @@
             <div class="opt_bar" data-i18n="noise-cancel">去雜訊</div>
             <div class="opt_btns close" id="medianFilter">
                 <!-- 強度 -->
-                <script>createSlider("medianFilter", "mf_k_size", "強度", min = 1, max = 20, 5,1,"","","strength")</script>
+                <script>createSlider("medianFilter", "mf_k_size", "強度", min = 1, max = 20, 5, 2, "", "", "strength")</script>
                 <button data-i18n="apply" class="opt_apply_btn" onclick="MedianFilter()">套用</button>
             </div>
         </div>
@@ -242,9 +251,9 @@
         <div class="opt_btns_container">
             <div class="opt_bar" data-i18n="beautify">美肌</div>
             <div class="opt_btns close" id="bilateraFilter">
-                <script>createSlider("bilateraFilter", "bf_d_size", "直徑", min = 1, max = 20, 5,1,"","","radious")</script>
-                <script>createSlider("bilateraFilter", "bf_cs_size", "色彩範圍", min = 1, max = 500, 5,1,"","","color-range")</script>
-                <script>createSlider("bilateraFilter", "bf_ss_size", "空間範圍", min = 1, max = 500, 5,1,"","","space-range")</script>
+                <script>createSlider("bilateraFilter", "bf_d_size", "直徑", min = 1, max = 20, 5, 1, "", "", "radious")</script>
+                <script>createSlider("bilateraFilter", "bf_cs_size", "色彩範圍", min = 1, max = 500, 5, 1, "", "", "color-range")</script>
+                <script>createSlider("bilateraFilter", "bf_ss_size", "空間範圍", min = 1, max = 500, 5, 1, "", "", "space-range")</script>
 
                 <button data-i18n="apply" class="opt_apply_btn" onclick="BilateralFilter()">套用</button>
             </div>
@@ -280,9 +289,9 @@
             </div>
         </div>
 
-        <!-- 非真實感 -->
+        <!-- 其他濾鏡  -->
         <div class="opt_btns_container">
-            <div class="opt_bar" data-i18n="unrealistic">非真實感濾鏡</div>
+            <div class="opt_bar" data-i18n="unrealistic">其他濾鏡</div>
 
             <div class="opt_btns close">
                 <div class="opt_btn_container">
@@ -298,8 +307,8 @@
         <div class="opt_btns_container">
             <div class="opt_bar" data-i18n="ripple-blur">波紋模糊</div>
             <div class="opt_btns close" id="ripple">
-                <script>createSlider("ripple", "ripple_amp", "強度", min = 1, max = 100, 15, 0.1,"","","strength")</script>
-                <script>createSlider("ripple", "ripple_pid", "週期", min = 1, max = 50, 5,1,"","","period")</script>
+                <script>createSlider("ripple", "ripple_amp", "強度", min = 1, max = 100, 15, 0.1, "", "", "strength")</script>
+                <script>createSlider("ripple", "ripple_pid", "週期", min = 1, max = 50, 5, 1, "", "", "period")</script>
 
                 <button data-i18n="apply" class="opt_apply_btn" onclick="Ripple()">套用</button>
             </div>
@@ -309,8 +318,8 @@
         <div class="opt_btns_container">
             <div class="opt_bar" data-i18n="radial-pixelation">放射像素風格</div>
             <div class="opt_btns close" id="radialPixelation">
-                <script>createSlider("radialPixelation", "rp_r", "半徑", min = 1, max = 100, 15,1,"","","radious")</script>
-                <script>createSlider("radialPixelation", "rp_theta", "角度", min = 0.1, max = 360, 5, 0.1,"","","angle")</script>
+                <script>createSlider("radialPixelation", "rp_r", "半徑", min = 1, max = 100, 15, 1, "", "", "radious")</script>
+                <script>createSlider("radialPixelation", "rp_theta", "角度", min = 0.1, max = 360, 5, 0.1, "", "", "angle")</script>
 
                 <button data-i18n="apply" class="opt_apply_btn" onclick="RadialPixelation()">套用</button>
             </div>
@@ -320,8 +329,8 @@
         <div class="opt_btns_container">
             <div class="opt_bar" data-i18n="radial-ripple">漣漪模糊</div>
             <div class="opt_btns close" id="radialRipple">
-                <script>createSlider("radialRipple", "radical_ripple_amp", "強度", min = 1, max = 100, 15, 0.1,"","","strength")</script>
-                <script>createSlider("radialRipple", "radical_ripple_pid", "週期", min = 1, max = 50, 5,1,"","","period")</script>
+                <script>createSlider("radialRipple", "radical_ripple_amp", "強度", min = 1, max = 100, 15, 0.1, "", "", "strength")</script>
+                <script>createSlider("radialRipple", "radical_ripple_pid", "週期", min = 1, max = 50, 5, 1, "", "", "period")</script>
 
                 <button data-i18n="apply" class="opt_apply_btn" onclick="RadialRipple()">套用</button>
             </div>
@@ -331,11 +340,11 @@
         <div class="opt_btns_container">
             <div class="opt_bar" data-i18n="twilr">扭轉特效</div>
             <div class="opt_btns close" id="twilr">
-                <script>createSlider("twilr", "twirl_k", "扭轉係數", min = -400, max = 400, 100, 0.1,"","","k")</script>
+                <script>createSlider("twilr", "twirl_k", "扭轉係數", min = -400, max = 400, 100, 0.1, "", "", "k")</script>
                 <!--
                 <button class="opt_apply_btn" onclick="Twirl()">套用</button>-->
 
-                <script>createButton(parent = "twilr", onClick = "Twirl()", text = "套用","apply")</script>
+                <script>createButton(parent = "twilr", onClick = "Twirl()", text = "套用", "apply")</script>
             </div>
         </div>
         <!-- 運動模糊 -->
@@ -343,19 +352,19 @@
             <div class="opt_bar" data-i18n="motion-blur">運動模糊</div>
             <div class="opt_btns close" id="motionBlur">
 
-                <script>createSlider("motionBlur", "motionBlur_l", "強度", min = 1, max = 300, 1, 1,"","","strength")</script>
-                <script>createSlider("motionBlur", "motionBlur_a", "角度", min = 0, max = 360, 10, 0.1,"","","angle")</script>
+                <script>createSlider("motionBlur", "motionBlur_l", "強度", min = 1, max = 300, 1, 1, "", "", "strength")</script>
+                <script>createSlider("motionBlur", "motionBlur_a", "角度", min = 0, max = 360, 10, 0.1, "", "", "angle")</script>
 
                 <!--<button class="opt_apply_btn" onclick="MotionBlur()">套用</button>-->
-                <script>createButton(parent = "motionBlur", onClick = "MotionBlur()", text = "套用" , "apply")</script>
+                <script>createButton(parent = "motionBlur", onClick = "MotionBlur()", text = "套用", "apply")</script>
             </div>
         </div>
         <!-- 放射模糊 -->
         <div class="opt_btns_container">
             <div class="opt_bar" data-i18n="radical-blur">放射模糊</div>
             <div class="opt_btns close" id="radical_blur">
-                <script>createSlider("radical_blur", "radical_blur_size", "放射量", min = 0, max = 10, 1, 1,"","","strength")</script>
-                <script>createButton(parent = "radical_blur", onClick = "RadicalBlur()", text = "套用","apply")</script>
+                <script>createSlider("radical_blur", "radical_blur_size", "放射量", min = 0, max = 10, 1, 1, "", "", "strength")</script>
+                <script>createButton(parent = "radical_blur", onClick = "RadicalBlur()", text = "套用", "apply")</script>
 
             </div>
         </div>
@@ -364,13 +373,13 @@
             <div class="opt_bar" data-i18n="face-detection">標示人臉</div>
             <div class="opt_btns close" id="face_detection">
                 <script>createSelect("face_detection", "face_dec_select", "algorithm",
-                        [{ val: "haar", text: "Haar"},
+                        [{ val: "haar", text: "Haar" },
                         { val: "lbp", text: "LBP" }
                         ])
                 </script>
-                <script>createSlider("face_detection", "face_dec_scale", "縮放", min = 1.1, max = 10, 1.1, 0.1,"","","scale")</script>
-                <script>createSlider("face_detection", "face_dec_neighbor", "閥值", min = 1, max = 10, 3, 1,"","","threshold")</script>
-                <script>createButton(parent = "face_detection", onClick = "FaceDetection()", text = "套用","apply")</script>
+                <script>createSlider("face_detection", "face_dec_scale", "縮放", min = 1.1, max = 10, 1.1, 0.1, "", "", "scale")</script>
+                <script>createSlider("face_detection", "face_dec_neighbor", "閥值", min = 1, max = 10, 3, 1, "", "", "threshold")</script>
+                <script>createButton(parent = "face_detection", onClick = "FaceDetection()", text = "套用", "apply")</script>
 
             </div>
         </div>
@@ -420,11 +429,11 @@
                         src="https://react.semantic-ui.com/images/wireframe/image.png">
                     <script>
                         createSelect("overlay", "overlayMethod", "blend-mode", [
-                            { val: "normal", text: "正常",i18:"normal" },
-                            { val: "brighter", text: "變亮" ,i18:"brighter"},
-                            { val: "darken", text: "變暗" ,i18:"darken" },
-                            { val: "screen", text: "濾色"  ,i18:"screen"},
-                            { val: "overlay", text: "覆蓋" ,i18:"overlay"},
+                            { val: "normal", text: "正常", i18: "normal" },
+                            { val: "brighter", text: "變亮", i18: "brighter" },
+                            { val: "darken", text: "變暗", i18: "darken" },
+                            { val: "screen", text: "濾色", i18: "screen" },
+                            { val: "overlay", text: "覆蓋", i18: "overlay" },
                         ]) 
                     </script>
                     <!-- 加入按鈕 -->
@@ -438,7 +447,18 @@
                 <script>createSlider("overlay_container", "offset_x", "位移x", min = -100, max = 100, 0, 0.1,"")</script>
                 <script>createSlider("overlay_container", "offset_y", "位移y", min = -100, max = 100, 0, 0.1,"")</script>
                 -->
-                <script>createButton(parent = "overlay_container", onClick = "OverlayerImage()", text = "套用","apply")</script>
+                <script>createButton(parent = "overlay_container", onClick = "OverlayerImage()", text = "套用", "apply")</script>
+            </div>
+        </div>
+
+        <!-- 作者資訊 -->
+        <div id="author-box">
+            <span data-i18n="author">Author</span>
+            <span>Lontoone</span>
+            <div>
+                <span><a href="https://github.com/Lontoone/PhotoSharp.git">github</a></span>
+                <span>|</span>
+                <span><a href="https://Lontoone.github.io/me">website</a></span>
             </div>
         </div>
 
@@ -494,7 +514,7 @@
     <script src="layerControl.js"></script>
     <script src="labelControl.js"></script>
     <script src="ImgToggle.js"></script>
-    
+
 </body>
 
 
