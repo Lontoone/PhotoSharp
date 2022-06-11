@@ -1,5 +1,6 @@
 # PhotoSharp
 這是一個課堂小專題，但仍有擴充可能。
+![thumb](https://i.imgur.com/DjNSDrx.png)
 
 # 環境安裝需求
 
