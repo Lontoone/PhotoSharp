@@ -4,12 +4,13 @@
 # 環境安裝需求
 
 ```
-eel
-numpy
-opencv-python
+pip install eel
+pip install numpy
+pip install opencv-python
 ```
 - haarcascade_frontalface_default.xml
 - lbpcascade_frontalcatface.xml
+
 額外.xml檔案須放置於專案根目錄。
 
 # 輸出exe
@@ -54,7 +55,7 @@ python -m eel app.py web
 /div>
 ```
 
-# Python端API
+# Python端溝通API
 
 - `data_uri_to_cv2_img(base64Str)` 接收js端傳送的based64圖片(url)並轉成python opencv可使用的圖片。
 
@@ -87,7 +88,7 @@ def toGray(url):
 
 ```
 
-# UI語言擴充
+# 多語言UI擴充
 
 編輯`i18n`資料夾下的.json檔案，在`lang.js`下load方法加入新增的json檔案位置
 ```javascript
