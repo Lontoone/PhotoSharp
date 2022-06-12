@@ -23,6 +23,14 @@ pip install opencv-python
 FileNotFoundError: [Errno 2] No such file or directory: '....\manage.py'
 ```
 
+若遇到
+
+```
+[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions: ('localhost', 8000)
+```
+最快的方法是在app.py改eel.start的啟動port
+
+
 # 輸出exe
 若要輸出exe檔案需再安裝`PyInstaller`，並執行以下程式碼：
 ```

@@ -709,4 +709,4 @@ def overlayImage(url,layerUrl,opt):
 # 開啟網頁
 eel.init(f'{os.path.dirname(os.path.realpath(__file__))}/web')
 #eel.start('main.html', mode='chrome-app',port=8000,cmdline_args=['--start-fullscreen', '--browser-startup-dialog'])  # 網頁 (app模式)
-eel.start('main.html', mode='edge',port=8000,cmdline_args=['--start-fullscreen'])  # 網頁 (app模式)
+eel.start('main.html', mode='edge',port=8080,cmdline_args=['--start-fullscreen'])  # 網頁 (app模式)
