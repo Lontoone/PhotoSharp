@@ -1,5 +1,6 @@
 # PhotoSharp
 這是一個課堂小專題，但仍有擴充可能。
+![thumb](https://i.imgur.com/DjNSDrx.png)
 
 # 環境安裝需求
 
@@ -12,6 +13,15 @@ pip install opencv-python
 - lbpcascade_frontalcatface.xml
 
 額外.xml檔案須放置於專案根目錄。
+
+# 啟動專案
+
+直接執行app.py即可。
+若遇到FileNotFoundError問題，請使用cmd至src資料夾下，以指令方式啟動: `python app.y`
+
+```
+FileNotFoundError: [Errno 2] No such file or directory: '....\manage.py'
+```
 
 # 輸出exe
 若要輸出exe檔案需再安裝`PyInstaller`，並執行以下程式碼：
